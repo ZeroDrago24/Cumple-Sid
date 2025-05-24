@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+body {
+    background: #6c63ff;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+}
+
+.card-container {
+    perspective: 1000px;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.5s;
+    cursor: pointer;
+}
+
+.card-container:hover .card {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.front {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.birthday {
+    width: 90%;
+    border-radius: 10px;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.back {
+    background: #fff;
+    color: #333;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1em;
+    text-align: center;
+}
+
+.text {
+    overflow-y: auto;
+    max-height: 70%;
+    padding: 0.5em;
+}
+
+audio {
+    margin-top: 1em;
+}
+
+.muted {
+    opacity: 0.7;
+    margin-top: 0.5em;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
